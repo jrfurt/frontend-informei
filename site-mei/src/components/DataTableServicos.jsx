@@ -1,22 +1,21 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import clienteService from '../services/clientes';
+import servicoService from '../services/servicosMei';
 import { Box } from '@mui/material';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'firstName', headerName: 'Nome', editable: true, width: 130 },
-  { field: 'lastName', headerName: 'Sobrenome', editable: true, width: 130 },
+  { field: 'nome', headerName: 'Nome', editable: true, width: 130 },
   {
-    field: 'age',
-    headerName: 'Idade',
+    field: 'valor',
+    headerName: 'Valor',
     type: 'number',
     editable: true,
     width: 90,
   },
 ];
 
-const rows = clienteService.getAll();
+const rows = servicoService.getAll();
 
 export default function DataTable({ buttonForm }) {
   return (
