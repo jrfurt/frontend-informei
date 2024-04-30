@@ -5,6 +5,7 @@ import Agendamentos from "./pages/Agendamentos";
 import Clientes from "./pages/Clientes";
 import Servicos from "./pages/Servicos";
 import Login from "./pages/Login";
+import CadastrarMei from "./pages/CadastrarMei";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="servicos" element={<Servicos />} />
         </Route>
         <Route path="login" element={<Login />} />
+        <Route path="cadastrar" element={<CadastrarMei />} />
       </Routes>
     </BrowserRouter>
   );
