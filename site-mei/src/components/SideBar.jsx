@@ -69,7 +69,7 @@ export default function ClippedDrawer() {
             </Link>
             <Link
               style={{ textDecoration: 'none', color: '#333' }}
-              to={'/pedidos'}
+              to={'/agendamentos'}
             >
               <ListItemButton
                 selected={selectedIndex === 1}
@@ -78,7 +78,7 @@ export default function ClippedDrawer() {
                 <ListItemIcon>
                   <ListAltOutlined />
                 </ListItemIcon>
-                Pedidos
+                Agendamentos
               </ListItemButton>
             </Link>
             <Link
