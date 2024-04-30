@@ -42,9 +42,10 @@ export default function Login() {
         }
         login.logar(form).then((response) => {
             console.log(response.data)
-
-            localStorage.setItem('user', response.data.login)
-            window.location.href = "/"
+            if (response.data.login) {
+                localStorage.setItem('user', response.data.user)
+                window.location.href = "/"
+            }
         }).catch(() => alert("Erro ao logar"))
     };
 
