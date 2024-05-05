@@ -37,8 +37,16 @@ export default function CadastrarMei() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
+      nome: data.get('nome'),
+      cnpj: data.get('cnpj'),
+      rua: data.get('rua'),
+      numero: data.get('numero'),
+      bairro: data.get('bairro'),
+      cidade: data.get('cidade'),
+      uf: data.get('uf'),
+      telefone: data.get('telefone'),
       email: data.get('email'),
-      password: data.get('password'),
+      senha: data.get('senha'),
     });
   };
 
@@ -67,25 +75,87 @@ export default function CadastrarMei() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="nome"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="nome"
+                  label="Nome MEI"
+                  size="small"
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  id="cnpj"
+                  label="CNPJ"
+                  size="small"
+                  name="cnpj"
+                />
+              </Grid>
+              <Grid item xs={9}>
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
+                  id="rua"
+                  label="Rua"
+                  name="rua"
+                  size="small"
+                />
+              </Grid>
+              <Grid item xs={3}>
+                <TextField
+                  required
+                  fullWidth
+                  id="numero"
+                  label="Nº"
+                  name="numero"
+                  type="number"
+                  size="small"
+                  autoComplete="numero"
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="bairro"
+                  label="Bairro"
+                  name="bairro"
+                  size="small"
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="cidade"
+                  label="Cidade"
+                  name="cidade"
+                  size="small"
+                />
+              </Grid>
+              <Grid item xs={3}>
+                <TextField
+                  required
+                  fullWidth
+                  id="uf"
+                  label="UF"
+                  name="uf"
+                  size="small"
+                />
+              </Grid>
+              <Grid item xs={9}>
+                <TextField
+                  required
+                  fullWidth
+                  id="telefone"
+                  label="Telefone"
+                  name="telefone"
+                  size="small"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -93,8 +163,9 @@ export default function CadastrarMei() {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label="E-mail"
                   name="email"
+                  size="small"
                   autoComplete="email"
                 />
               </Grid>
@@ -102,11 +173,12 @@ export default function CadastrarMei() {
                 <TextField
                   required
                   fullWidth
-                  name="password"
-                  label="Password"
+                  name="senha"
+                  label="Senha"
                   type="password"
-                  id="password"
-                  autoComplete="new-password"
+                  id="senha"
+                  size="small"
+                  autoComplete="senha"
                 />
               </Grid>
             </Grid>
