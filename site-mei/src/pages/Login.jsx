@@ -51,7 +51,7 @@ export default function Login() {
           window.location.href = '/';
         }
       })
-      .catch((err) => alert('Erro ao logar'));
+      .catch(() => alert('Erro ao logar'));
   };
 
   return (
