@@ -10,6 +10,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import cadastrarMei from '../services/cadastrarMei';
 
 function Copyright(props) {
   return (
@@ -36,7 +37,7 @@ export default function CadastrarMei() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    const form = {
       nome: data.get('nome'),
       cnpj: data.get('cnpj'),
       rua: data.get('rua'),
@@ -47,7 +48,18 @@ export default function CadastrarMei() {
       telefone: data.get('telefone'),
       email: data.get('email'),
       senha: data.get('senha'),
-    });
+    };
+
+    cadastrarMei
+      .cadastrar(form)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.login) {
+          localStorage.setItem('user', res.data.user);
+          window.location.href = '/';
+        }
+      })
+      .catch(() => alert('Erro ao registrar!'));
   };
 
   return (
@@ -72,7 +84,7 @@ export default function CadastrarMei() {
             component="form"
             noValidate
             onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
+            sx={{ mt: 2 }}
           >
             <Grid container spacing={2}>
               <Grid item xs={12}>
