@@ -6,6 +6,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import servicosMei from '../services/servicosMei';
 
 export default function DialogCadastrarServico({ buttonTitle }) {
   const [open, setOpen] = React.useState(false);
@@ -30,11 +31,17 @@ export default function DialogCadastrarServico({ buttonTitle }) {
           component: 'form',
           onSubmit: (event) => {
             event.preventDefault();
-            const form = new FormData(event.currentTarget);
-            console.log({
-              nome_servico: form.get('nome_servico'),
-              valor: form.get('valor'),
-            });
+            const data = new FormData(event.currentTarget);
+            const form = {
+              nome_servico: data.get('nome_servico'),
+              valor: data.get('valor'),
+            };
+
+            servicosMei
+              .createServico(form)
+              .then((res) => console.log(res.data))
+              .catch(() => alert('Erro ao cadastrar serviço'));
+
             handleClose();
           },
         }}

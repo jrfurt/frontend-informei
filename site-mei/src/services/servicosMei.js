@@ -4,8 +4,8 @@ const servicosMei = {
   getAll: () => {
     return axiosInstance.get('/servicos');
   },
-  createServico: () => {
-    axiosInstance.post('/servico/create');
+  createServico: (form) => {
+    return axiosInstance.post('/servico/create', form);
   },
 };
 
