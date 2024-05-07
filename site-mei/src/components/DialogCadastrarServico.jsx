@@ -32,7 +32,7 @@ export default function DialogCadastrarServico({ buttonTitle }) {
             event.preventDefault();
             const form = new FormData(event.currentTarget);
             console.log({
-              email: form.get('email'),
+              nome_servico: form.get('nome_servico'),
               valor: form.get('valor'),
             });
             handleClose();
@@ -48,8 +48,8 @@ export default function DialogCadastrarServico({ buttonTitle }) {
             autoFocus
             required
             margin="dense"
-            id="name"
-            name="email"
+            id="nome_servico"
+            name="nome_servico"
             label="Nome do Serviço"
             type="text"
             fullWidth
