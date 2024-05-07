@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function FormDialog({ buttonTitle }) {
+export default function DialogCadastrarServico({ buttonTitle }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -26,7 +26,18 @@ export default function FormDialog({ buttonTitle }) {
       <Dialog
         open={open}
         onClose={handleClose}
-        aria-labelledby='novo-cadastro'
+        PaperProps={{
+          component: 'form',
+          onSubmit: (event) => {
+            event.preventDefault();
+            const form = new FormData(event.currentTarget);
+            console.log({
+              email: form.get('email'),
+              valor: form.get('valor'),
+            });
+            handleClose();
+          },
+        }}
       >
         <DialogTitle>Cadastrar Novo Serviço</DialogTitle>
         <DialogContent>
@@ -48,14 +59,19 @@ export default function FormDialog({ buttonTitle }) {
             required
             margin="dense"
             id="valor"
-            name="email"
+            name="valor"
             label="Valor"
             type="number"
+            inputProps={{
+              step: '0.01',
+            }}
             fullWidth
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color='error'>Cancelar</Button>
+          <Button onClick={handleClose} color="error">
+            Cancelar
+          </Button>
           <Button type="submit">Cadastrar</Button>
         </DialogActions>
       </Dialog>

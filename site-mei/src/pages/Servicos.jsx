@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import DataTableServicos from '../components/DataTableServicos';
-import FormDialog from '../components/FormDialog';
+import DialogCadastrarServico from '../components/DialogCadastrarServico';
 
 export default function Servicos() {
   return (
@@ -8,7 +8,7 @@ export default function Servicos() {
       <Typography variant="h4" component="h1" mb={2} mx={1}>
         Serviços
       </Typography>
-      <DataTableServicos buttonForm={<FormDialog buttonTitle="Cadastrar Serviço" />} />
+      <DataTableServicos buttonForm={<DialogCadastrarServico buttonTitle="Cadastrar Serviço" />} />
     </div>
   );
 }
