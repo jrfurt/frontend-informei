@@ -5,6 +5,7 @@ import { Box } from '@mui/material';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
+
 const columns = [
   { field: 'id_servico', headerName: 'ID', width: 70 },
   { field: 'nome_servico', headerName: 'Nome', editable: true, width: 130 },
@@ -15,6 +16,7 @@ const columns = [
     editable: true,
     width: 90,
   },
+  { field: 'actions', headerName: 'Actions', width: 100 },
 ];
 
 export default function DataTable({ buttonForm }) {
@@ -43,6 +45,7 @@ export default function DataTable({ buttonForm }) {
           }}
           pageSizeOptions={[5, 10]}
           checkboxSelection
+          disableRowSelectionOnClick
         />
       </div>
       <Box sx={{ display: 'flex', justifyContent: 'end' }} mt={3}>

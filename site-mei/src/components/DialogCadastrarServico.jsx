@@ -7,9 +7,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import servicosMei from '../services/servicosMei';
+import { MenuItem } from '@mui/material';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function DialogCadastrarServico({ buttonTitle }) {
   const [open, setOpen] = React.useState(false);
+  const [categorias, setCategorias] = useState([]);
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState(null);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -18,6 +23,15 @@ export default function DialogCadastrarServico({ buttonTitle }) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  useEffect(() => {
+    servicosMei.getAllCategorias().then((res) => {
+      setCategorias(res.data);
+      console.log(res);
+    });
+  }, []);
+
+  if (!categorias) return null;
 
   return (
     <React.Fragment>
@@ -31,15 +45,23 @@ export default function DialogCadastrarServico({ buttonTitle }) {
           component: 'form',
           onSubmit: (event) => {
             event.preventDefault();
+            const user = localStorage.getItem('user');
             const data = new FormData(event.currentTarget);
             const form = {
               nome_servico: data.get('nome_servico'),
               valor: data.get('valor'),
+              id_mei: user,
+              id_categoria: categoriaSelecionada,
             };
 
             servicosMei
               .createServico(form)
-              .then((res) => console.log(res.data))
+              .then((res) => {
+                console.log(res.data);
+                if (res.data) {
+                  window.location.href = '/servicos';
+                }
+              })
               .catch(() => alert('Erro ao cadastrar serviço'));
 
             handleClose();
@@ -74,6 +96,25 @@ export default function DialogCadastrarServico({ buttonTitle }) {
             }}
             fullWidth
           />
+          <TextField
+            select
+            required
+            margin="dense"
+            id="categoria"
+            name="categoria"
+            label="Selecione a Categoria"
+            fullWidth
+          >
+            {categorias.map((categoria) => (
+              <MenuItem
+                key={categoria.id_categoria}
+                value={categoria.id_categoria}
+                onClick={() => setCategoriaSelecionada(categoria.id_categoria)}
+              >
+                {categoria.categoria}
+              </MenuItem>
+            ))}
+          </TextField>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="error">
