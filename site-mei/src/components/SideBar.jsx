@@ -38,7 +38,7 @@ export default function ClippedDrawer() {
             <EmojiObjectsOutlined sx={{ color: 'white' }} />
           </ListItemIcon>
           <Typography variant="h6" noWrap component="div">
-            Dashboard
+            GarerShop
           </Typography>
         </Toolbar>
       </AppBar>
