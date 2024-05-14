@@ -1,11 +1,11 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SideBar from './components/SideBar';
-import Dashboard from "./pages/Dashboard";
-import Agendamentos from "./pages/Agendamentos";
-import Clientes from "./pages/Clientes";
-import Servicos from "./pages/Servicos";
-import Login from "./pages/Login";
-import CadastrarMei from "./pages/CadastrarMei";
+import Dashboard from './pages/Dashboard';
+import Agendamentos from './pages/Agendamentos';
+import Clientes from './pages/Clientes';
+import Servicos from './pages/Servicos';
+import Login from './pages/Login';
+import CadastrarMei from './pages/CadastrarMei';
 
 export default function App() {
   return (

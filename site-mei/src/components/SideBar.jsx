@@ -9,7 +9,6 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import { ListItemButton, ListItemIcon } from '@mui/material';
 import {
-  Dashboard,
   EmojiObjectsOutlined,
   HomeRepairServiceOutlined,
   ListAltOutlined,
