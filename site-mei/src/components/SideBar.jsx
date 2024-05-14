@@ -20,7 +20,7 @@ import { Link, Outlet } from 'react-router-dom';
 const drawerWidth = 240;
 
 export default function ClippedDrawer() {
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
@@ -38,7 +38,7 @@ export default function ClippedDrawer() {
             <EmojiObjectsOutlined sx={{ color: 'white' }} />
           </ListItemIcon>
           <Typography variant="h6" noWrap component="div">
-            InforMei
+            Dashboard
           </Typography>
         </Toolbar>
       </AppBar>
@@ -56,17 +56,6 @@ export default function ClippedDrawer() {
         <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
           <List>
-            <Link style={{ textDecoration: 'none', color: '#333' }} to={'/'}>
-              <ListItemButton
-                selected={selectedIndex === 0}
-                onClick={(event) => handleListItemClick(event, 0)}
-              >
-                <ListItemIcon>
-                  <Dashboard />
-                </ListItemIcon>
-                Dashboard
-              </ListItemButton>
-            </Link>
             <Link
               style={{ textDecoration: 'none', color: '#333' }}
               to={'/agendamentos'}

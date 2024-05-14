@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import DataTable from '../components/DataTableServicos';
+import DataTableAgendamentos from '../components/DataTableAgendamentos';
 
 export default function Pedidos() {
   return (
@@ -7,7 +7,7 @@ export default function Pedidos() {
       <Typography variant="h4" component="h1" mb={2} mx={1}>
         Agendamentos
       </Typography>
-      <DataTable buttonTitle='Cadastrar cliente' />
+      <DataTableAgendamentos />
     </div>
   );
 }

@@ -1,27 +1,20 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import servicosMei from '../services/servicosMei';
-import { Box } from '@mui/material';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import agendamentos from '../services/agendamentos';
 
 const columns = [
-  { field: 'id_servico', headerName: 'ID', width: 70 },
-  { field: 'nome_servico', headerName: 'Nome', editable: true, width: 190 },
-  {
-    field: 'valor',
-    headerName: 'Valor (R$)',
-    type: 'number',
-    editable: true,
-    width: 90,
-  },
+  { field: 'data', headerName: 'Data', width: 130 },
+  { field: 'nome', headerName: 'Nome', width: 250 },
+  { field: 'nome_servico', headerName: 'Serviço', width: 130 },
 ];
 
-export default function DataTable({ buttonForm }) {
+export default function DataTable() {
   const [rows, setRows] = useState(null);
 
   useEffect(() => {
-    servicosMei.getAll().then((res) => {
+    agendamentos.getAll().then((res) => {
       setRows(res.data);
     });
   }, []);
@@ -32,7 +25,7 @@ export default function DataTable({ buttonForm }) {
     <>
       <div style={{ height: 400, width: '100%' }}>
         <DataGrid
-          getRowId={(rows) => rows.id_servico}
+          getRowId={(rows) => rows.id_agendamento}
           rows={rows}
           columns={columns}
           editMode="row"
@@ -43,12 +36,8 @@ export default function DataTable({ buttonForm }) {
           }}
           pageSizeOptions={[5, 10]}
           checkboxSelection
-          disableRowSelectionOnClick
         />
       </div>
-      <Box sx={{ display: 'flex', justifyContent: 'end' }} mt={3}>
-        {buttonForm}
-      </Box>
     </>
   );
 }
