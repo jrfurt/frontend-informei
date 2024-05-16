@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import servicosMei from '../services/servicosMei';
 
 const columns = [
-  { field: 'id_categoria', headerName: 'ID', width: 130 },
+  { field: 'id_categoria', headerName: 'ID', width: 70 },
   { field: 'categoria', headerName: 'Categoria', width: 250 },
 ];
 

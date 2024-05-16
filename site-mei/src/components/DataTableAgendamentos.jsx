@@ -6,8 +6,8 @@ import agendamentos from '../services/agendamentos';
 
 const columns = [
   { field: 'data', headerName: 'Data', width: 130 },
-  { field: 'nome', headerName: 'Nome', width: 250 },
-  { field: 'nome_servico', headerName: 'Serviço', width: 130 },
+  { field: 'nome', headerName: 'Nome', width: 220 },
+  { field: 'nome_servico', headerName: 'Serviço', width: 170 },
 ];
 
 export default function DataTable() {
