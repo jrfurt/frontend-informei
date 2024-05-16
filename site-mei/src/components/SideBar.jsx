@@ -46,7 +46,7 @@ export default function ClippedDrawer() {
             <EmojiObjectsOutlined sx={{ color: 'white' }} />
           </ListItemIcon>
           <Typography variant="h6" noWrap component="div">
-            {nomeMei}
+            {nomeMei ? nomeMei : 'DashBoard'}
           </Typography>
         </Toolbar>
       </AppBar>
