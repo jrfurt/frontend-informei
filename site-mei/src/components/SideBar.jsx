@@ -13,19 +13,13 @@ import {
   HomeRepairServiceOutlined,
   ListAltOutlined,
   PeopleAltOutlined,
-  CategoryOutlined
+  CategoryOutlined,
 } from '@mui/icons-material';
 import { Link, Outlet } from 'react-router-dom';
 
 const drawerWidth = 240;
 
 export default function ClippedDrawer() {
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
-
-  const handleListItemClick = (event, index) => {
-    setSelectedIndex(index);
-  };
-
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -56,14 +50,8 @@ export default function ClippedDrawer() {
         <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
           <List>
-            <Link
-              style={{ textDecoration: 'none', color: '#333' }}
-              to={'/agendamentos'}
-            >
-              <ListItemButton
-                selected={selectedIndex === 1}
-                onClick={(event) => handleListItemClick(event, 1)}
-              >
+            <Link style={{ textDecoration: 'none', color: '#333' }} to={'/'}>
+              <ListItemButton>
                 <ListItemIcon>
                   <ListAltOutlined />
                 </ListItemIcon>
@@ -74,10 +62,7 @@ export default function ClippedDrawer() {
               style={{ textDecoration: 'none', color: '#333' }}
               to={'/clientes'}
             >
-              <ListItemButton
-                selected={selectedIndex === 2}
-                onClick={(event) => handleListItemClick(event, 2)}
-              >
+              <ListItemButton>
                 <ListItemIcon>
                   <PeopleAltOutlined />
                 </ListItemIcon>
@@ -88,10 +73,7 @@ export default function ClippedDrawer() {
               style={{ textDecoration: 'none', color: '#333' }}
               to={'/servicos'}
             >
-              <ListItemButton
-                selected={selectedIndex === 3}
-                onClick={(event) => handleListItemClick(event, 3)}
-              >
+              <ListItemButton>
                 <ListItemIcon>
                   <HomeRepairServiceOutlined />
                 </ListItemIcon>
@@ -102,10 +84,7 @@ export default function ClippedDrawer() {
               style={{ textDecoration: 'none', color: '#333' }}
               to={'/categorias'}
             >
-              <ListItemButton
-                selected={selectedIndex === 4}
-                onClick={(event) => handleListItemClick(event, 4)}
-              >
+              <ListItemButton>
                 <ListItemIcon>
                   <CategoryOutlined />
                 </ListItemIcon>
