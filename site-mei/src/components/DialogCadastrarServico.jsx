@@ -27,7 +27,6 @@ export default function DialogCadastrarServico({ buttonTitle }) {
   useEffect(() => {
     servicosMei.getAllCategorias().then((res) => {
       setCategorias(res.data);
-      console.log(res);
     });
   }, []);
 
@@ -57,7 +56,6 @@ export default function DialogCadastrarServico({ buttonTitle }) {
             servicosMei
               .createServico(form)
               .then((res) => {
-                console.log(res.data);
                 if (res.data) {
                   window.location.href = '/servicos';
                 }
