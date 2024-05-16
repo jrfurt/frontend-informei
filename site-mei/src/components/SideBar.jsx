@@ -16,10 +16,24 @@ import {
   CategoryOutlined,
 } from '@mui/icons-material';
 import { Link, Outlet } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import login from '../services/login';
 
 const drawerWidth = 240;
 
 export default function ClippedDrawer() {
+  const [nomeMei, setNomeMei] = useState('');
+  const id_mei = localStorage.getItem('user');
+
+  useEffect(() => {
+    login
+      .getNomeMeiById(id_mei)
+      .then((res) => {
+        setNomeMei(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -32,7 +46,7 @@ export default function ClippedDrawer() {
             <EmojiObjectsOutlined sx={{ color: 'white' }} />
           </ListItemIcon>
           <Typography variant="h6" noWrap component="div">
-            GarerShop
+            {nomeMei}
           </Typography>
         </Toolbar>
       </AppBar>
