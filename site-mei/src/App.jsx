@@ -17,8 +17,8 @@ export default function App() {
           <Route path="servicos" element={<Servicos />} />
           <Route path="categorias" element={<Categorias />} />
         </Route>
-        <Route path="login" element={<Login />} />
-        <Route path="cadastrar" element={<CadastrarMei />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastrar" element={<CadastrarMei />} />
       </Routes>
     </BrowserRouter>
   );
