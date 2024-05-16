@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SideBar from './components/SideBar';
-import Dashboard from './pages/Dashboard';
 import Agendamentos from './pages/Agendamentos';
 import Clientes from './pages/Clientes';
 import Servicos from './pages/Servicos';

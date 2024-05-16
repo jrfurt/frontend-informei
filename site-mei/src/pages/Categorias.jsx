@@ -7,7 +7,7 @@ export default function Clientes() {
       <Typography variant="h4" component="h1" mb={2} mx={1}>
         Categorias
       </Typography>
-      <DataTableClientes />
+      {/* <DataTableClientes /> */}
     </div>
   );
 }

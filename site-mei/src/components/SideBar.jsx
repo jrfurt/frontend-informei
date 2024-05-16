@@ -13,6 +13,7 @@ import {
   HomeRepairServiceOutlined,
   ListAltOutlined,
   PeopleAltOutlined,
+  CategoryOutlined
 } from '@mui/icons-material';
 import { Link, Outlet } from 'react-router-dom';
 
@@ -97,9 +98,22 @@ export default function ClippedDrawer() {
                 Serviços
               </ListItemButton>
             </Link>
+            <Link
+              style={{ textDecoration: 'none', color: '#333' }}
+              to={'/categorias'}
+            >
+              <ListItemButton
+                selected={selectedIndex === 4}
+                onClick={(event) => handleListItemClick(event, 4)}
+              >
+                <ListItemIcon>
+                  <CategoryOutlined />
+                </ListItemIcon>
+                Categorias
+              </ListItemButton>
+            </Link>
           </List>
           <Divider />
-          <List></List>
         </Box>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
